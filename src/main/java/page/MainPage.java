@@ -13,8 +13,8 @@ public class MainPage extends BasePage {
 
 
     public <T extends AbstractPage> T clickByCareerButtonAndTransferOnJobPage(Button button, Class<T> createNewPage) {
-        String xpathForNavigateButtons = "//ul[@class='nav navbar-nav justified']//a[contains(., '%s')]";
-        testClass.waitAndClickByElement(testClass.findElement(FindButton.XPATH, (String.format(xpathForNavigateButtons, button.getButon()))));
+        String xpathForNavigateButtons = "//ul[@class='nav navbar-nav justified']//a[contains(., '" + button.getButon() + "')]";
+        testClass.waitAndClickByElement(testClass.findElement(FindButton.XPATH, xpathForNavigateButtons));
         return createPage(createNewPage);
     }
 

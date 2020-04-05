@@ -110,21 +110,21 @@ public abstract class BaseTest {
     public WebElement findElement(FindButton button, String element) {
         switch (button) {
             case XPATH:
-                return driver.findElement(By.xpath(String.valueOf(element)));
+                return driver.findElement(By.xpath(element));
             case ID:
-                return driver.findElement(By.id(String.valueOf(element)));
+                return driver.findElement(By.id(element));
             case NAME:
-                return driver.findElement(By.name(String.valueOf(element)));
+                return driver.findElement(By.name(element));
             case TAG_NAME:
-                return driver.findElement(By.tagName(String.valueOf(element)));
+                return driver.findElement(By.tagName(element));
             case LINK_TEXT:
-                return driver.findElement(By.linkText(String.valueOf(element)));
+                return driver.findElement(By.linkText(element));
             case CLASS_NAME:
-                return driver.findElement(By.className(String.valueOf(element)));
+                return driver.findElement(By.className(element));
             case CSS_SELECTOR:
-                return driver.findElement(By.cssSelector(String.valueOf(element)));
+                return driver.findElement(By.cssSelector(element));
             case PARTIAL_LINK_TEXT:
-                return driver.findElement(By.partialLinkText(String.valueOf(element)));
+                return driver.findElement(By.partialLinkText(element));
             default:
                 throw new RuntimeException("Locator was not found");
         }

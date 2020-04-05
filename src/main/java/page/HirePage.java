@@ -31,10 +31,10 @@ public class HirePage extends BasePage{
     @FindBy(xpath = "//div[@class='form-group birthday-form']/select[@name='bd']")
     private WebElement birthDay;
 
-    @FindBy(xpath = "//div[@class='form-group birthday-form']/select[@name='bd']")
+    @FindBy(xpath = "//div[@class='form-group birthday-form']/select[@name='bm']")
     private WebElement birthMonth;
 
-    @FindBy(xpath = "//div[@class='form-group birthday-form']/select[@name='bd']")
+    @FindBy(xpath = "//div[@class='form-group birthday-form']/select[@name='by']")
     private WebElement birthYear;
 
     @FindBy(css = "#inputPhone")
@@ -53,12 +53,12 @@ public class HirePage extends BasePage{
     }
 
     public String setDataUserAndClickBySendResumeAndGetErrorMessage(Button button) {
-        String xpathForClickBySendResume = "//button[@id='submit']/span[contains(., '')]";
+        String xpathForClickBySendResume = "//div[@class='agree-btn container careere-info-block']//button[contains(., '" + button.getButon() + "')]";
         birthDay.sendKeys(DataUser.BIRTH_DAY.getValue());
         birthMonth.sendKeys(DataUser.BIRTH_MONTH.getValue());
         birthYear.sendKeys(DataUser.BIRTH_YEAR.getValue());
         phoneNumber.sendKeys(DataUser.PHONE_NUMBER.getValue());
-        testClass.waitAndClickByElement(testClass.findElement(FindButton.XPATH, (String.format(xpathForClickBySendResume, button.getButon()))));
+        testClass.waitAndClickByElement(testClass.findElement(FindButton.XPATH, xpathForClickBySendResume));
         return testClass.waitTillElementIsVisible(testClass.findElement(FindButton.XPATH, ("//div[@class='form-group has-error']/p"))).getCssValue("color");
     }
 

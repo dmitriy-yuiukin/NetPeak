@@ -14,8 +14,8 @@ public class JobPage extends BasePage {
 
 
     public <T extends AbstractPage> T clickByIWatnToWorInNetPeakButtonAndTransferOnHirePage(Button button, Class<T> createNewPage) {
-        String xpathForIWantToWorkInNetpeakButton = "//div[@class='vac-block-border']//a[contains(., '%s')]";
-        testClass.waitAndClickByElement(testClass.findElement(FindButton.XPATH, (String.format(xpathForIWantToWorkInNetpeakButton, button.getButon()))));
+        String xpathForIWantToWorkInNetpeakButton = "//div[@class='vac-block-border']//a[contains(., '" + button.getButon() + "')]";
+        testClass.waitAndClickByElement(testClass.findElement(FindButton.XPATH, xpathForIWantToWorkInNetpeakButton));
         return createPage(createNewPage);
     }
 
